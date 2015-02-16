@@ -1,0 +1,43 @@
+<apex:page controller="deployxmlcon" readOnly="true" sidebar="false">
+    <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
+    <apex:outputPanel style="margin-bottom: 20px; position: absolute; font-weight: bold; background-color: gray; color: white; display: block; width: 393px; padding: 5px">ApexClass - {!classes.size}</apex:outputPanel>
+    <div style="height:20px;"></div>
+    <apex:repeat value="{!classes}" var="class">
+    
+    <pre style="font-size: 12px">
+        &lt;types&gt;
+            &lt;members&gt;{!class.Name}&lt;&#47;members&gt;
+            &lt;name&gt;ApexClass&lt;&#47;name&gt;
+        &lt;&#47;types&gt;
+    </pre>   
+    </apex:repeat>
+    </apex:outputPanel>
+    <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
+    <apex:outputPanel style="margin-bottom: 20px; position: absolute; font-weight: bold; background-color: gray; color: white; display: block; width: 393px; padding: 5px">ApexPage - {!pages.size}</apex:outputPanel>
+    <div style="height:20px;"></div>
+    <apex:repeat value="{!pages}" var="page">
+    <pre style="font-size: 12px">
+        &lt;types&gt;
+            &lt;members&gt;{!page.Name}&lt;&#47;members&gt;
+            &lt;name&gt;ApexPage&lt;&#47;name&gt;
+        &lt;&#47;types&gt;
+    </pre>    
+    </apex:repeat>
+    </apex:outputPanel>
+    <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
+    <apex:outputPanel style="margin-bottom: 20px; position: absolute; font-weight: bold; background-color: gray; color: white; display: block; width: 393px; padding: 5px">ApexTrigger - {!triggers.size}</apex:outputPanel>
+    <div style="height:20px;"></div>
+    <apex:repeat value="{!triggers}" var="trigger">
+    <pre style="font-size: 12px">
+        &lt;types&gt;
+            &lt;members&gt;{!trigger.Name}&lt;&#47;members&gt;
+            &lt;name&gt;ApexTrigger&lt;&#47;name&gt;
+        &lt;&#47;types&gt;
+    </pre>    
+    </apex:repeat>
+    </apex:outputPanel>
+    <br />
+    <apex:outputPanel style="font-size: 11px" >
+        <em>* Last modified on top.</em>
+    </apex:outputPanel>
+</apex:page>
