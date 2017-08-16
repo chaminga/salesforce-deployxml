@@ -1,15 +1,20 @@
 <apex:page controller="deployxmlcon" readOnly="true" sidebar="false">
+<style>
+.today{
+    background-color: yellow;
+}
+</style>
+<apex:form >
     <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
     <apex:outputPanel style="margin-bottom: 20px; position: absolute; font-weight: bold; background-color: gray; color: white; display: block; width: 393px; padding: 5px">ApexClass - {!classes.size}</apex:outputPanel>
     <div style="height:20px;"></div>
     <apex:repeat value="{!classes}" var="class">
-    
-    <pre style="font-size: 12px">
+    <pre style="font-size: 12px;">
         &lt;types&gt;
             &lt;members&gt;{!class.Name}&lt;&#47;members&gt;
             &lt;name&gt;ApexClass&lt;&#47;name&gt;
         &lt;&#47;types&gt;
-    </pre>   
+    </pre>
     </apex:repeat>
     </apex:outputPanel>
     <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
@@ -21,7 +26,7 @@
             &lt;members&gt;{!page.Name}&lt;&#47;members&gt;
             &lt;name&gt;ApexPage&lt;&#47;name&gt;
         &lt;&#47;types&gt;
-    </pre>    
+    </pre>
     </apex:repeat>
     </apex:outputPanel>
     <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
@@ -33,11 +38,48 @@
             &lt;members&gt;{!trigger.Name}&lt;&#47;members&gt;
             &lt;name&gt;ApexTrigger&lt;&#47;name&gt;
         &lt;&#47;types&gt;
-    </pre>    
+    </pre>
     </apex:repeat>
     </apex:outputPanel>
     <br />
+    <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
+    <apex:outputPanel style="margin-bottom: 20px; position: absolute; font-weight: bold; background-color: gray; color: white; display: block; width: 393px; padding: 5px">StaticResource - {!resources.size}</apex:outputPanel>
+    <div style="height:20px;"></div>
+    <apex:repeat value="{!resources}" var="resource">
+    <pre style="font-size: 12px">
+        &lt;types&gt;
+            &lt;members&gt;{!resource.Name}&lt;&#47;members&gt;
+            &lt;name&gt;StaticResource&lt;&#47;name&gt;
+        &lt;&#47;types&gt;
+    </pre>
+    </apex:repeat>
+    </apex:outputPanel>
+    <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
+    <apex:outputPanel style="margin-bottom: 20px; position: absolute; font-weight: bold; background-color: gray; color: white; display: block; width: 393px; padding: 5px">ApexComponent - {!components.size}</apex:outputPanel>
+    <div style="height:20px;"></div>
+    <apex:repeat value="{!components}" var="component">
+    <pre style="font-size: 12px">
+        &lt;types&gt;
+            &lt;members&gt;{!component.Name}&lt;&#47;members&gt;
+            &lt;name&gt;ApexComponent&lt;&#47;name&gt;
+        &lt;&#47;types&gt;
+    </pre>
+    </apex:repeat>
+    </apex:outputPanel>
+        <apex:outputPanel style="height: 500px; width: 420px; display: inline-block; overflow: scroll;">
+    <apex:outputPanel style="margin-bottom: 20px; position: absolute; font-weight: bold; background-color: #D06767; color: white; display: block; width: 393px; padding: 5px">FILES LIST</apex:outputPanel>
+    <div style="height:20px; padding: 5px;"></div>
+
+    <apex:repeat value="{!fileStamps}" var="fileKey">
+    <div style="line-height: 18px; font-size: 12px; padding-left: 5px;" class="{!todayFiles[fileKey]}">
+       {!filesMap[fileKey]}
+    </div>
+    
+    </apex:repeat>
+    </apex:outputPanel>
+    <br/>
     <apex:outputPanel style="font-size: 11px" >
         <em>* Last modified on top.</em>
     </apex:outputPanel>
+</apex:form>
 </apex:page>
